@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
         //This script is also attached to the player
         rb = GetComponent<Rigidbody2D>();
         maxNumJumps = 1;
-        numJumps = maxNumJumps;
+        numJumps = 1;
 
         Debug.Log("Hello from Player Controller!");
     }
@@ -76,17 +76,17 @@ public class PlayerController : MonoBehaviour
         //Debug.Log(collision.gameObject);
         if (collision.gameObject.CompareTag("Ground"))
         {
-            numJumps = maxNumJumps;
+            numJumps = 1;
         }
     }
 
     //Triggers
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //Double Jump
         if (collision.gameObject.CompareTag("PinkCollectable"))
         {
-            string fromPinkCollectable = collision.gameObject.GetComponent<PinkTriangleCollectable>().getTestString();
-            Debug.Log(fromPinkCollectable);
+            maxNumJumps = 2;
         }
     }
 }
