@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     //Ex. (If I get to space 4 -> do this. Instead, If I get anything greater than space 4 -> do this)
     public float jumpForce;
 
+    public GameObject doubleJumpHatLocation;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -86,7 +88,16 @@ public class PlayerController : MonoBehaviour
         //Double Jump
         if (collision.gameObject.CompareTag("PinkCollectable"))
         {
+            GameObject hat = collision.gameObject;
+            equipDoubleJumpHat(hat);
             maxNumJumps = 2;
         }
+    }
+
+    private void equipDoubleJumpHat(GameObject hat)
+    {
+        //collision.gameObject.transform.SetParent(null);
+        hat.transform.position = doubleJumpHatLocation.transform.position;
+        hat.gameObject.transform.SetParent(this.gameObject.transform);
     }
 }
