@@ -8,6 +8,7 @@ TagManager:
   - PinkCollectable
   - WallMoveRightBound
   - WallMoveLeftBound
+  - YellowCollectable
   layers:
   - Default
   - TransparentFX

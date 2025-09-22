@@ -4,6 +4,8 @@ public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb;
     private float inputHorizontal;
+
+    private float ShrinkedTimer;
     private int maxNumJumps;
     private int numJumps;
     //Because this is public, we have access to it in the unity editor.
@@ -14,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
 
     public GameObject doubleJumpHatLocation;
+    public GameObject debuffHatLocation;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -32,6 +35,7 @@ public class PlayerController : MonoBehaviour
     {
         movePlayerLateral();
         jump();
+        ShrinkedPlayer();
     }
 
     private void movePlayerLateral()
@@ -71,6 +75,23 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void ShrinkedPlayer()
+    {
+        transform.localScale = new Vector3(0.5f, 0.5f, 1f);
+
+        // Timer logic for shrinking effect
+    if (ShrinkedTimer > 0)
+    {
+        ShrinkedTimer -= Time.deltaTime;
+        ShrinkedPlayer();
+    }
+    else
+    {
+        // Restore player size if timer expired
+        transform.localScale = new Vector3(1f, 1f, 1f);
+    }
+    }
+
     //Collisions
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -85,19 +106,34 @@ public class PlayerController : MonoBehaviour
     //Triggers
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Double Jump
+        // Double Jump
         if (collision.gameObject.CompareTag("PinkCollectable"))
         {
             GameObject hat = collision.gameObject;
             equipDoubleJumpHat(hat);
             maxNumJumps = 2;
         }
+        // Debuff
+        else if (collision.gameObject.CompareTag("YellowCollectable"))
+        {
+            GameObject debuffHat = collision.gameObject;
+            equipDebuffHat(debuffHat);
+            ShrinkedTimer = 10.0f;
+        }
+    
     }
 
     private void equipDoubleJumpHat(GameObject hat)
     {
         //collision.gameObject.transform.SetParent(null);
         hat.transform.position = doubleJumpHatLocation.transform.position;
-        hat.gameObject.transform.SetParent(this.gameObject.transform);
+        hat.transform.SetParent(this.gameObject.transform);
+    }
+
+    private void equipDebuffHat(GameObject debuffHat)
+    {
+        //collision.gameObject.transform.SetParent(null);
+        debuffHat.transform.position = debuffHatLocation.transform.position;
+        debuffHat.transform.SetParent(this.gameObject.transform);
     }
 }

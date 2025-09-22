@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PinkTriangleCollectable : MonoBehaviour
+public class DebuffCollectable : MonoBehaviour
 {
     //string test;
     private void OnTriggerEnter2D(Collider2D collision)
@@ -10,6 +10,4 @@ public class PinkTriangleCollectable : MonoBehaviour
             //Destroy(this.gameObject);
         }
     }
-
-    
 }
