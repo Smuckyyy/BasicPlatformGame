@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -35,7 +36,8 @@ public class PlayerController : MonoBehaviour
     {
         movePlayerLateral();
         jump();
-        ShrinkedPlayer();
+        //Fix the shrink function
+        //ShrinkedPlayer();
     }
 
     private void movePlayerLateral()
@@ -75,22 +77,23 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void ShrinkedPlayer()
-    {
-        transform.localScale = new Vector3(0.5f, 0.5f, 1f);
+    //FIX THE SHRINK FUNCTION
+    // private void ShrinkedPlayer()
+    // {
+    //     transform.localScale = new Vector3(0.5f, 0.5f, 1f);
 
-        // Timer logic for shrinking effect
-    if (ShrinkedTimer > 0)
-    {
-        ShrinkedTimer -= Time.deltaTime;
-        ShrinkedPlayer();
-    }
-    else
-    {
-        // Restore player size if timer expired
-        transform.localScale = new Vector3(1f, 1f, 1f);
-    }
-    }
+    //     // Timer logic for shrinking effect
+    // if (ShrinkedTimer > 0)
+    // {
+    //     ShrinkedTimer -= Time.deltaTime;
+    //     ShrinkedPlayer();
+    // }
+    // else
+    // {
+    //     // Restore player size if timer expired
+    //     transform.localScale = new Vector3(1f, 1f, 1f);
+    // }
+    // }
 
     //Collisions
     private void OnCollisionEnter2D(Collision2D collision)
@@ -100,6 +103,10 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             numJumps = 1;
+        }
+        else if (collision.gameObject.CompareTag("obBottom"))
+        {
+            SceneManager.LoadScene("SampleScene");
         }
     }
 
