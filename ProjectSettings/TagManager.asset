@@ -9,6 +9,7 @@ TagManager:
   - WallMoveRightBound
   - WallMoveLeftBound
   - YellowCollectable
+  - ob
   layers:
   - Default
   - TransparentFX
