@@ -339,6 +339,21 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2081089071680569795, guid: 408311df5e1a8554ea80f2dead49e80a, type: 3}
   m_PrefabInstance: {fileID: 3250946950704594151}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &308219856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308219850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30fc8a37ad3bf7745a518b07b981dd5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerShrink
+  shrinkDuration: 5
+  visuals: {fileID: 593892422}
+  shrinkScale: {x: 0.5, y: 0.5, z: 1}
 --- !u!1 &444611274 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 190743864979094291, guid: 20e9fc525dedb8c4abceed3a7ed5634f, type: 3}
@@ -776,7 +791,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04f5fdcdf4ca75a4fa378a58aa36ed38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DebuffCollectable
-  hatPrefab: {fileID: 0}
 --- !u!1 &1317219545
 GameObject:
   m_ObjectHideFlags: 0
@@ -878,6 +892,10 @@ PrefabInstance:
     - target: {fileID: 190743864979094291, guid: 20e9fc525dedb8c4abceed3a7ed5634f, type: 3}
       propertyPath: m_Name
       value: DoubleJumpHatLoc
+      objectReference: {fileID: 0}
+    - target: {fileID: 190743864979094291, guid: 20e9fc525dedb8c4abceed3a7ed5634f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 190743864979094291, guid: 20e9fc525dedb8c4abceed3a7ed5634f, type: 3}
       propertyPath: m_TagString
@@ -1074,6 +1092,10 @@ PrefabInstance:
     - target: {fileID: 190743864979094291, guid: 20e9fc525dedb8c4abceed3a7ed5634f, type: 3}
       propertyPath: m_Name
       value: YellowDebuffHatLoc
+      objectReference: {fileID: 0}
+    - target: {fileID: 190743864979094291, guid: 20e9fc525dedb8c4abceed3a7ed5634f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 190743864979094291, guid: 20e9fc525dedb8c4abceed3a7ed5634f, type: 3}
       propertyPath: m_TagString
@@ -1617,6 +1639,10 @@ PrefabInstance:
       value: YellowCollectable
       objectReference: {fileID: 0}
     - target: {fileID: 190743864979094291, guid: 20e9fc525dedb8c4abceed3a7ed5634f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 190743864979094291, guid: 20e9fc525dedb8c4abceed3a7ed5634f, type: 3}
       propertyPath: m_TagString
       value: YellowCollectable
       objectReference: {fileID: 0}
@@ -1947,6 +1973,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 122235966940539492, guid: 408311df5e1a8554ea80f2dead49e80a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 308219853}
+    - targetCorrespondingSourceObject: {fileID: 122235966940539492, guid: 408311df5e1a8554ea80f2dead49e80a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 308219856}
   m_SourcePrefab: {fileID: 100100000, guid: 408311df5e1a8554ea80f2dead49e80a, type: 3}
 --- !u!1001 &4827452235977662360
 PrefabInstance:
@@ -1966,11 +1995,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7894872936154569454, guid: 20e9fc525dedb8c4abceed3a7ed5634f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.0100007
+      value: -12.85
       objectReference: {fileID: 0}
     - target: {fileID: 7894872936154569454, guid: 20e9fc525dedb8c4abceed3a7ed5634f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.91
+      value: -2.59
       objectReference: {fileID: 0}
     - target: {fileID: 7894872936154569454, guid: 20e9fc525dedb8c4abceed3a7ed5634f, type: 3}
       propertyPath: m_LocalPosition.z

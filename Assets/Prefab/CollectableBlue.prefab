@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 201279138436724889}
   m_Layer: 0
   m_Name: CollectableBlue
-  m_TagString: Untagged
+  m_TagString: ob
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3764f0703cfccf24789516ff9a3f6486, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectableController
-  speed: 5
+  speed: 3
 --- !u!114 &201279138436724889
 MonoBehaviour:
   m_ObjectHideFlags: 0

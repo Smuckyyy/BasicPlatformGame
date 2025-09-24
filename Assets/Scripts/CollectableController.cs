@@ -30,9 +30,9 @@ public class CollectableController : MonoBehaviour
         speed = Random.Range(minSpeed, maxSpeed);
     }
 
-    private void onTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("ob"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             Destroy(this.gameObject);
         }

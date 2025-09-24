@@ -5,8 +5,6 @@ public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb;
     private float inputHorizontal;
-
-    private float ShrinkedTimer;
     private int maxNumJumps;
     private int numJumps;
     //Because this is public, we have access to it in the unity editor.
@@ -36,8 +34,6 @@ public class PlayerController : MonoBehaviour
     {
         movePlayerLateral();
         jump();
-        //Fix the shrink function
-        //ShrinkedPlayer();
     }
 
     private void movePlayerLateral()
@@ -77,24 +73,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //FIX THE SHRINK FUNCTION
-    // private void ShrinkedPlayer()
-    // {
-    //     transform.localScale = new Vector3(0.5f, 0.5f, 1f);
-
-    //     // Timer logic for shrinking effect
-    // if (ShrinkedTimer > 0)
-    // {
-    //     ShrinkedTimer -= Time.deltaTime;
-    //     ShrinkedPlayer();
-    // }
-    // else
-    // {
-    //     // Restore player size if timer expired
-    //     transform.localScale = new Vector3(1f, 1f, 1f);
-    // }
-    // }
-
     //Collisions
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -125,7 +103,6 @@ public class PlayerController : MonoBehaviour
         {
             GameObject debuffHat = collision.gameObject;
             equipDebuffHat(debuffHat);
-            ShrinkedTimer = 10.0f;
         }
     
     }
