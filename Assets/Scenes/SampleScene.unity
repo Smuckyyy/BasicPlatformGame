@@ -351,7 +351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30fc8a37ad3bf7745a518b07b981dd5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerShrink
-  shrinkDuration: 5
+  shrinkDuration: 60
   visuals: {fileID: 593892422}
   shrinkScale: {x: 0.5, y: 0.5, z: 1}
 --- !u!1 &444611274 stripped

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerShrink : MonoBehaviour
 {
-    [SerializeField] private float shrinkDuration = 5f; //The shrink will last for 5 seconds
+    [SerializeField] private float shrinkDuration = 60f; //The shrink will last for 1 minute
     [SerializeField] private Transform visuals; //This is in the inspector, drag the player head here so the collectable doesn't shrink with it
     [SerializeField] private Vector3 shrinkScale = new Vector3(0.5f, 0.5f, 1f);
 
