@@ -17,7 +17,11 @@ public class PlayerController : MonoBehaviour
     public GameObject doubleJumpHatLocation;
     public GameObject debuffHatLocation;
 
+    public GameObject scoreManager;
+    private ScoreManagerGUI scoreManagerScript;
+
     private int playerScore;
+    private int highScore;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,10 +29,12 @@ public class PlayerController : MonoBehaviour
         //I can only get this component because the rigidbody2d is attached to the player
         //This script is also attached to the player
         rb = GetComponent<Rigidbody2D>();
+        scoreManagerScript = scoreManager.GetComponent<ScoreManagerGUI>();
         maxNumJumps = 1;
         numJumps = 1;
 
-        Debug.Log("Hello from Player Controller!");
+        playerScore = 0;
+        highScore = 0;
     }
 
     // Update is called once per frame
@@ -108,11 +114,17 @@ public class PlayerController : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Collectable"))
         {
+            //Getting reference to the value of the collectable
             GameObject collectable = collision.gameObject;
             CollectableData cdScript = collectable.GetComponent<CollectableData>();
+            //Getting value of collectable
             int valueOfCollectable = cdScript.getCollectableValue();
+            //Destroy the collectable that we collided with
             cdScript.destroyCollectable();
+            //Changing the player score
             changePlayerScore(valueOfCollectable);
+            //Changing the GUI to match the new score
+            scoreManagerScript.setGUICurScore();
         }
 
     }
@@ -131,7 +143,7 @@ public class PlayerController : MonoBehaviour
         debuffHat.transform.SetParent(this.gameObject.transform);
     }
 
-    public int GetPlayerScore()
+    public int getPlayerScore()
     {
         return playerScore;
     }
@@ -139,6 +151,16 @@ public class PlayerController : MonoBehaviour
     public void setPlayerScore(int s)
     {
         playerScore = s;
+    }
+
+    public int getPlayerHighScore()
+    {
+        return highScore;
+    }
+
+    public void setPlayerHighScore(int s)
+    {
+        highScore = s;
     }
 
     public void changePlayerScore(int value)

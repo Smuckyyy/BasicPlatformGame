@@ -271,6 +271,7 @@ MonoBehaviour:
   jumpForce: 5
   doubleJumpHatLocation: {fileID: 533551958}
   debuffHatLocation: {fileID: 444611274}
+  scoreManager: {fileID: 1201269850}
 --- !u!58 &308219853
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -808,8 +809,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 86, y: -32}
-  m_SizeDelta: {x: 153.12299, y: 50}
+  m_AnchoredPosition: {x: 104.5869, y: -32}
+  m_SizeDelta: {x: 190.2968, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1003465977
 MonoBehaviour:
@@ -938,6 +939,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1201269851}
+  - component: {fileID: 1201269852}
+  - component: {fileID: 1201269853}
   m_Layer: 0
   m_Name: GUI_GamePlay
   m_TagString: Untagged
@@ -961,6 +964,34 @@ Transform:
   - {fileID: 1924577544}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1201269852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1201269850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e960c00fc56204eb8ef2ae35a147b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScoreManagerGUI
+  guiCurScore: {fileID: 1003465977}
+  guiHighScore: {fileID: 1988686129}
+  player: {fileID: 308219850}
+--- !u!114 &1201269853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1201269850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cff21402cbfa9340a4a6d16fee9dae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HighscoreManager
+  player: {fileID: 308219850}
 --- !u!1 &1317219545
 GameObject:
   m_ObjectHideFlags: 0
@@ -1962,7 +1993,7 @@ MonoBehaviour:
   orangeCollectable: {fileID: 2350493421207447437, guid: 78735e0a108bcb640af30220c56d2be6, type: 3}
   blueCollectable: {fileID: 3946069767673935238, guid: 76e8ab2c779e8374983e9cc06f125030, type: 3}
   redCollectable: {fileID: 3533988774512568414, guid: 720a63cb23052e9499fda793f2a7e0d2, type: 3}
-  delay: 3
+  delay: 1
 --- !u!4 &1958552703
 Transform:
   m_ObjectHideFlags: 0
@@ -2124,7 +2155,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Highscore: 999'
+  m_text: 'Highscore: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
