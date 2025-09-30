@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2320913483538931513}
   m_Layer: 0
   m_Name: CollectableOrange
-  m_TagString: ob
+  m_TagString: Collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

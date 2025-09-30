@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     public GameObject doubleJumpHatLocation;
     public GameObject debuffHatLocation;
 
+    private int playerScore;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -104,7 +106,15 @@ public class PlayerController : MonoBehaviour
             GameObject debuffHat = collision.gameObject;
             equipDebuffHat(debuffHat);
         }
-    
+        else if (collision.gameObject.CompareTag("Collectable"))
+        {
+            GameObject collectable = collision.gameObject;
+            CollectableData cdScript = collectable.GetComponent<CollectableData>();
+            int valueOfCollectable = cdScript.getCollectableValue();
+            cdScript.destroyCollectable();
+            changePlayerScore(valueOfCollectable);
+        }
+
     }
 
     private void equipDoubleJumpHat(GameObject hat)
@@ -119,5 +129,21 @@ public class PlayerController : MonoBehaviour
         //collision.gameObject.transform.SetParent(null);
         debuffHat.transform.position = debuffHatLocation.transform.position;
         debuffHat.transform.SetParent(this.gameObject.transform);
+    }
+
+    public int GetPlayerScore()
+    {
+        return playerScore;
+    }
+
+    public void setPlayerScore(int s)
+    {
+        playerScore = s;
+    }
+
+    public void changePlayerScore(int value)
+    {
+        playerScore += value;
+        Debug.Log("Score: " + playerScore);
     }
 }
